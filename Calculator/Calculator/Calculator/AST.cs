@@ -90,7 +90,7 @@ namespace Calculator
                         continue;
                     }
 
-                    if (tokens.Count > 0 && (tokens[tokens.Count -1] is TokenOperand)) throw new SyntaxErrorException("Syntax error.");
+                    if (tokens.Count > 0 && (tokens[tokens.Count - 1] is TokenOperand)) throw new SyntaxErrorException("Syntax error.");
                     if (tokens.Count > 0 && (tokens[tokens.Count - 1] is TokenVariable || tokens[tokens.Count - 1].Value == ")")) tokens.Add(new TokenOperator("*"));
                     if (unitaire != '\0')
                     {
@@ -143,7 +143,7 @@ namespace Calculator
                 }
                 #endregion
                 #region Operand case
-                if (testOperand.AllowedChars.Contains(car))
+                if (testOperand.AllowedChars.Contains(car) && car != ',')
                 {
                     numb += car;
                     lastOperator = '\0';
@@ -294,7 +294,7 @@ namespace Calculator
         public static List<Token.Token> ShuntingYard(List<Token.Token> input)
         {
             List<Token.Token> output = new List<Token.Token>();
-            Stack<Token.Token> stack = new Stack<Token.Token>(); 
+            Stack<Token.Token> stack = new Stack<Token.Token>();
             foreach (Token.Token token in input)
             {
                 if (token is TokenOperand) //If this is a number
@@ -316,6 +316,7 @@ namespace Calculator
                 }
                 else if (token is TokenFunctions) //if this is a function
                 {
+
                     stack.Push((TokenFunctions)token);
                 }
                 else if (token is TokenParenthesis)
@@ -324,8 +325,14 @@ namespace Calculator
                     {
                         stack.Push(token);
                     }
-
-                    if (token.Value == ";") 
+                    else if (token.Value == ",")
+                    {
+                        while(stack.Count > 0 && stack.Peek().Value!= "(")
+                        {
+                            output.Add(stack.Pop());
+                        }
+                    }
+                    else if (token.Value == ";") 
                     {
                         while (stack.Count > 0)
                         {
@@ -340,18 +347,19 @@ namespace Calculator
                             output.Add(stack.Pop());
                         }
 
-                        if (stack.Count > 0)
+                        stack.Pop(); //Normally, this is a parenthesis
+                        if (stack.Peek() is TokenFunctions)
                         {
-                            if (token.Value == ")")
-                                stack.Pop(); //Normally, this is a parenthesis
-                        }
-                        else
-                        {
-                            throw new SyntaxErrorException("Unbalanced parentheses");
+                            output.Add(stack.Pop());
                         }
                     }
+                    /*else
+                    {
+                        throw new SyntaxErrorException("Unbalanced parentheses");
+                    }*/
                 }
             }
+
 
             while (stack.Count > 0)
             {

@@ -17,7 +17,7 @@ namespace Calculator
         public static string Compute(string args)
         {
             Console.WriteLine($"The input is {args}");
-            Console.WriteLine($"test {rpn.ComputeRpn(rpn.TranslateRpn("3 3 sqrt sqrt *"))}");
+            Console.WriteLine($"test {rpn.ComputeRpn(rpn.TranslateRpn("5 fibo 9 sqrt +"))}");
             Console.WriteLine($"test2 {rpn.ComputeRpn(rpn.TranslateRpn("3 sqrt 3 sqrt *"))}");
             try
             {

@@ -96,6 +96,7 @@
             // 
             // label2
             // 
+            this.label2.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Purple Smile", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
