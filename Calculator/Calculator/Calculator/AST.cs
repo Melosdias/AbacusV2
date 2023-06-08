@@ -134,7 +134,7 @@ namespace Calculator
 
                     if (car == '=') //We want to avoid cases like 5 = 2 or + = 6
                     {
-                        if (tokens[tokens.Count - 1] is TokenVariable) throw new SyntaxErrorException("Syntax error.");
+                        if (!(tokens[tokens.Count - 1] is TokenVariable)) throw new SyntaxErrorException("Syntax error.");
                     }
                     tokens.Add(new TokenOperator(car.ToString()));
                     lastOperator = car;
@@ -348,7 +348,7 @@ namespace Calculator
                         }
 
                         stack.Pop(); //Normally, this is a parenthesis
-                        if (stack.Peek() is TokenFunctions)
+                        if (stack.Count > 0 &stack.Count > 0 && stack.Peek() is TokenFunctions)
                         {
                             output.Add(stack.Pop());
                         }

@@ -34,6 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Help = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -52,10 +53,10 @@
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(61, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(671, 69);
+            this.label2.Size = new System.Drawing.Size(666, 92);
             this.label2.TabIndex = 1;
             this.label2.Text = "Basically write a calculation in the text box, for example 5 + 3.\r\n\r\nIf you want " +
-    "to use special functions, here are the available function . \r\n";
+    "to use special functions, here are the available function :\r\n\r\n";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
@@ -84,12 +85,22 @@
             // 
             this.Help.AutoSize = true;
             this.Help.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Help.Location = new System.Drawing.Point(61, 311);
+            this.Help.Location = new System.Drawing.Point(61, 300);
             this.Help.Name = "Help";
             this.Help.Size = new System.Drawing.Size(514, 21);
             this.Help.TabIndex = 4;
             this.Help.Text = "For example, \"sqrt(9)\" return 3 or \"max(10, 2)\" return 10.\r\n";
             this.Help.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(61, 323);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(666, 168);
+            this.label5.TabIndex = 5;
+            this.label5.Text = resources.GetString("label5.Text");
             // 
             // Form2
             // 
@@ -97,6 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.Help);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -104,7 +116,8 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "How to use";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,5 +130,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Help;
+        private System.Windows.Forms.Label label5;
     }
 }

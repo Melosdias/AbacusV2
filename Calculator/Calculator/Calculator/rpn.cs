@@ -167,6 +167,7 @@ namespace Calculator
                 }
                 if (token is TokenVariable)
                 {
+                    bool test = true;
                     foreach (var tok in operand)
                     {
                         if (tok is TokenVariable)
@@ -174,11 +175,15 @@ namespace Calculator
                             if (tok.Value == token.Value)
                             {
                                 token.number = tok.number;
+                                test = false;
                                 break;
                             }
                         }
                     }
-                    operand.Push((Token.Token)token);
+                    if (test)
+                    {
+                        operand.Push((Token.Token)token);
+                    }
                     continue;
                 }
                 if (token is TokenOperator)

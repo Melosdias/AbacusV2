@@ -127,6 +127,17 @@ Return the n-th term of the Fibonacci sequence
 Return the greatest common divisor between a and b
 </value>
   </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>You can also use variables! 
+To use it, please use the following syntax : 
+(variable name) = (value) ; (calculs including the variable).
+For example, "a=7;a+3" return 10. 
+You can use many variables at once, for example "a=7;b=3;a*b" return 21.
+You can also use variable un the functions . "a=5; facto(a)" return 120.
+ 
+
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
