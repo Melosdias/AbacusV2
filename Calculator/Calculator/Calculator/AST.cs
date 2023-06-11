@@ -171,7 +171,7 @@ namespace Calculator
 
                     if (car == '(' && tokens.Count > 0)
                     {
-                        if (tokens[tokens.Count - 1] is TokenOperand || tokens[tokens.Count - 1] is TokenVariable) tokens.Add(new TokenOperator("*")); //Mutiplication implicite
+                        if (tokens[tokens.Count - 1] is TokenOperand || tokens[tokens.Count - 1] is TokenVariable || tokens[tokens.Count-1].Value == ")") tokens.Add(new TokenOperator("*")); //Mutiplication implicite
                         if (tokens[tokens.Count - 1].Value == "-")
                         {
                             tokens.Remove(tokens[tokens.Count - 1]);
