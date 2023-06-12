@@ -41,5 +41,10 @@ namespace Calculator
         {
 
         }
+
+        private void label5_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

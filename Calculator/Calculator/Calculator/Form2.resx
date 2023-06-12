@@ -133,7 +133,7 @@ To use it, please use the following syntax :
 (variable name) = (value) ; (calculs including the variable).
 For example, "a=7;a+3" return 10. 
 You can use many variables at once, for example "a=7;b=3;a*b" return 21.
-You can also use variable un the functions . "a=5; facto(a)" return 120.
+You can also use variable in the functions . "a=5; facto(a)" return 120.
  
 
 </value>
